@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="contact-container">
+    <h1>Contact Us</h1>
+    <p>If you have any questions or need support, click the button below to join our Discord server where you can create support tickets!</p>
+
+    <!-- Discord Link -->
+    <div class="discord-link">
+      <h3>Join Our Discord Server and Get Support</h3>
+      <p>Click below to join our server, and get redirected to the support area for creating your ticket.</p>
+      <a href="#" class="btn" id="discordLink">discord.gg/nebulanode</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("discordLink").onclick = function() {
+      window.location.href = "https://discord.gg/zEnwyQjmmR"; // Discord invite link
+    };
+  </script>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
