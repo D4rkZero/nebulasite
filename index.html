@@ -3,23 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
+  <title>Login / Register - NebulaNode</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <div class="form-container" id="login-form">
-    <h2>Login</h2>
-    <div class="input-group">
-      <input type="text" id="username" placeholder="Username" required>
+  <div class="form-container" id="form-container">
+    <!-- Login Form -->
+    <div id="login-form">
+      <h2>Login to NebulaNode</h2>
+      <div class="input-group">
+        <input type="text" id="login-username" placeholder="Username" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="login-password" placeholder="Password" required>
+      </div>
+      <button class="btn" onclick="login()">Login</button>
+      <span class="link" onclick="toggleForm()">Don't have an account? Register</span>
     </div>
-    <div class="input-group">
-      <input type="password" id="password" placeholder="Password" required>
+
+    <!-- Register Form -->
+    <div id="register-form">
+      <h2>Register for NebulaNode</h2>
+      <div class="input-group">
+        <input type="text" id="register-username" placeholder="Username" required>
+      </div>
+      <div class="input-group">
+        <input type="email" id="register-email" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="register-password" placeholder="Password" required>
+      </div>
+      <button class="btn" onclick="register()">Register</button>
+      <span class="link" onclick="toggleForm()">Already have an account? Login</span>
     </div>
-    <button class="btn" onclick="handleLogin()">Login</button>
-    <span class="link" onclick="window.location.href='register.html'">Don't have an account? Register here</span>
   </div>
 
-  <script src="scripts.js"></script>
+  <!-- Loading Screen -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-circle"></div>
+    <p class="loading-text">Please Wait...</p>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+    const loadingOverlay = document.getElementById("loadingOverlay");
+
+    // Toggle between Login and Register forms
+    function toggleForm() {
+      loginForm.style.display = loginForm.style.display === "none" ? "block" : "none";
+      registerForm.style.display = registerForm.style.display === "block" ? "none" : "block";
+    }
+
+    // Show loading overlay
+    function showLoading() {
+      loadingOverlay.style.display = "flex";
+    }
+
+    // Hide loading overlay
+    function hideLoading() {
+      loadingOverlay.style.display = "none";
+    }
+
+    // Handle login functionality
+    function login() {
+      showLoading();
+      setTimeout(() => {
+        // Here, you can handle your login logic
+        // Simulate redirect after login
+        hideLoading();
+        window.location.href = "home.html"; // Redirect to the home page
+      }, 2000); // Simulate 2 seconds of loading
+    }
+
+    // Handle register functionality
+    function register() {
+      showLoading();
+      setTimeout(() => {
+        // Here, you can handle your registration logic
+        // Simulate redirect after registration
+        hideLoading();
+        window.location.href = "home.html"; // Redirect to the home page
+      }, 2000); // Simulate 2 seconds of loading
+    }
+  </script>
 </body>
 </html>
